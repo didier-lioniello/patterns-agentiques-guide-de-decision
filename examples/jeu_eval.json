@@ -1,0 +1,32 @@
+{
+  "_note": "Jeu SYNTHÉTIQUE et jouet. Chaque cas scripte les sorties successives d'un LLM simulé. 'correct' est la vérité terrain humaine de chaque sortie. Aucune donnée réelle.",
+  "max_mots": 30,
+  "cas": [
+    {"id": "c01-premier-coup", "source": "Contrat signé le 2026-03-01, loyer 1200 EUR, dépôt 2400 EUR.",
+     "sorties": [{"texte": "Contrat du 2026-03-01 : loyer 1200 EUR, dépôt 2400 EUR.", "correct": true}]},
+    {"id": "c02-corrige-apres-retour", "source": "Prêt de 15000 EUR accordé le 2026-01-10, remboursable le 2028-01-10.",
+     "sorties": [{"texte": "Prêt de 15000 EUR accordé le 2026-01-10.", "correct": false},
+                 {"texte": "Prêt de 15000 EUR du 2026-01-10, remboursable le 2028-01-10.", "correct": true}]},
+    {"id": "c03-montant-invente", "source": "Facture du 2026-02-14 pour 830 EUR HT.",
+     "sorties": [{"texte": "Facture du 2026-02-14 pour 880 EUR HT.", "correct": false},
+                 {"texte": "Facture du 2026-02-14 pour 830 EUR HT.", "correct": true}]},
+    {"id": "c04-trop-long", "source": "Bail du 2026-05-01, 950 EUR.",
+     "sorties": [{"texte": "Il s'agit d'un bail qui a été conclu entre les deux parties concernées à la date du 2026-05-01, pour un montant mensuel convenu de 950 EUR, payable chaque mois selon les modalités habituelles prévues.", "correct": false},
+                 {"texte": "Bail du 2026-05-01, 950 EUR par mois.", "correct": true}]},
+    {"id": "c05-oscillation", "source": "Vente le 2026-06-30 pour 210000 EUR, acompte 21000 EUR.",
+     "sorties": [{"texte": "Vente le 2026-06-30 pour 210000 EUR.", "correct": false},
+                 {"texte": "Acompte 21000 EUR sur 210000 EUR.", "correct": false},
+                 {"texte": "Vente le 2026-06-30 pour 210000 EUR.", "correct": false},
+                 {"texte": "Acompte 21000 EUR sur 210000 EUR.", "correct": false}]},
+    {"id": "c06-jamais-bon", "source": "Avenant du 2026-09-09 : pénalité 500 EUR.",
+     "sorties": [{"texte": "Avenant du 2026-09-09.", "correct": false},
+                 {"texte": "Avenant signé en septembre.", "correct": false},
+                 {"texte": "Avenant avec pénalité.", "correct": false},
+                 {"texte": "Un avenant existe.", "correct": false},
+                 {"texte": "Avenant.", "correct": false}]},
+    {"id": "c07-faux-mais-verifiable-nulle-part", "source": "Cession du 2026-04-04 par Durand à Martin pour 5000 EUR.",
+     "sorties": [{"texte": "Cession du 2026-04-04 par Martin à Durand pour 5000 EUR.", "correct": false}]},
+    {"id": "c08-premier-coup-bis", "source": "Abonnement du 2026-07-01 à 49 EUR.",
+     "sorties": [{"texte": "Abonnement du 2026-07-01, 49 EUR.", "correct": true}]}
+  ]
+}
